@@ -1,4 +1,6 @@
-const p1 = {
+//player 1
+
+const player1 = {
     button: document.querySelector('#button1'),
     score: document.querySelector('#mainScore #scoreOne'),
     gamescore: document.querySelector('#scoreOneOverall'),
@@ -6,7 +8,9 @@ const p1 = {
     namedisplay: document.querySelector('#playerOneName')
 }
 
-const p2 = {
+//player 2
+
+const player2 = {
     button: document.querySelector('#button2'),
     score: document.querySelector('#mainScore #scoreTwo'),
     gamescore: document.querySelector('#scoreTwoOverall'),
@@ -24,12 +28,12 @@ const gameOverModal = document.querySelector('#gameOverModal');
 const modalButtonNo = document.querySelector('#modalButtonNo');
 const modalButtonYes = document.querySelector('#modalButtonYes');
 
-p1.nameinput.addEventListener('input', function () {
-    p1.namedisplay.innerText = p1.nameinput.value;
+player1.nameinput.addEventListener('input', function () {
+    player1.namedisplay.innerText = player1.nameinput.value;
 })
 
-p2.nameinput.addEventListener('input', function () {
-    p2.namedisplay.innerText = p2.nameinput.value;
+player2.nameinput.addEventListener('input', function () {
+    player2.namedisplay.innerText = player2.nameinput.value;
 })
 
 function updateScore(player, opponent) {
@@ -61,12 +65,12 @@ function updateScore(player, opponent) {
     }
 }
 
-p1.button.addEventListener('click', function () {
-    updateScore(p1, p2);
+player1.button.addEventListener('click', function () {
+    updateScore(player1, player2);
 });
 
-p2.button.addEventListener('click', function () {
-    updateScore(p2, p1);
+player2.button.addEventListener('click', function () {
+    updateScore(player2, player1);
 });
 
 resetButton.addEventListener('click', reset);
@@ -84,7 +88,7 @@ winningGameScoreSelect.addEventListener('change', function () {
 });
 
 function gameReset() {
-    for (let p of [p1, p2]) {
+    for (let p of [player1, player2]) {
         p.gamescore.innerText = '0';
         p.gamescore.classList = '';
         p.nameinput.disabled = false;
@@ -93,7 +97,7 @@ function gameReset() {
 }
 
 function reset() {
-    for (let p of [p1, p2]) {
+    for (let p of [player1, player2]) {
         p.score.innerText = '0';
         p.button.disabled = false;
         p.score.classList = '';
